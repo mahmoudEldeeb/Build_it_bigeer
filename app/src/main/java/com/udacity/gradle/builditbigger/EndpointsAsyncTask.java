@@ -1,4 +1,4 @@
-package com.udacity.gradle.builditbigger.free;
+package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,10 +14,7 @@ import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
 import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 import com.example.melde.myapplication.backend.myApi.MyApi;
 import com.programs.lala.myandroidlibrary.JokeDisplayActivity;
-import com.udacity.gradle.builditbigger.MainActivity;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
+
 import com.udacity.gradle.builditbigger.R;
 
 import java.io.IOException;
@@ -30,7 +27,7 @@ public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, S
     private static MyApi myApiService = null;
     private Context context;
     private ProgressBar ProgressBar;
-    InterstitialAd mInterstitialAd;
+
     public EndpointsAsyncTask(Context c, ProgressBar p) {
        this.context=c;
 this.ProgressBar=p;
@@ -79,28 +76,6 @@ this.ProgressBar=p;
             ProgressBar.setVisibility(View.GONE);
         }
         startJokeDisplayActivity(result);
-        mInterstitialAd = new InterstitialAd(context);
-        mInterstitialAd.setAdUnitId(context.getString(R.string.interstitial_ad_unit_id));
-        mInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdLoaded() {
-                super.onAdLoaded();
-
-                mInterstitialAd.show();
-            }
-
-            @Override
-            public void onAdFailedToLoad(int errorCode) {
-                super.onAdFailedToLoad(errorCode);
-                if (ProgressBar != null) {
-                    ProgressBar.setVisibility(View.GONE);
-                }
-            }
-
-            @Override
-            public void onAdClosed() {
-            }
-        });
 
     }
 
