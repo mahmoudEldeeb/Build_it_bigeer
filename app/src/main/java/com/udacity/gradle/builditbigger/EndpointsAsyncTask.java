@@ -3,7 +3,6 @@ package com.udacity.gradle.builditbigger;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -15,7 +14,6 @@ import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 import com.example.melde.myapplication.backend.myApi.MyApi;
 import com.programs.lala.myandroidlibrary.JokeDisplayActivity;
 
-import com.udacity.gradle.builditbigger.R;
 
 import java.io.IOException;
 
